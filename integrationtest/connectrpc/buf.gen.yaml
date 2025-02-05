@@ -1,0 +1,26 @@
+version: v2
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/curioswitch/wshttp/integrationtest/connectrpc/gen
+plugins:
+  - local:
+      - go
+      - run
+      - google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.4
+    out: gen
+    opt: paths=source_relative
+  - local:
+      - go
+      - run
+      - connectrpc.com/connect/cmd/protoc-gen-connect-go@v1.18.1
+    out: gen
+    opt: paths=source_relative
+  - local:
+      - go
+      - run
+      - github.com/wasilibs/go-protoc-gen-es/v2/cmd/protoc-gen-es@v2.2.3
+    out: genes
+    opt: target=ts
+clean: true

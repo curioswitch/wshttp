@@ -1,0 +1,7 @@
+node_modules
+
+.envrc
+.idea
+
+out
+go.work.sum
